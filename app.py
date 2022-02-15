@@ -31,7 +31,7 @@ def index():
         WCTA = request.form.get("WCTA")
         print (NPTA,TLTA,WCTA)
         model = load_model("BKRNN")
-        pred = model.predict([float(NPTA), float(TLTA), float(WCTA)])
+        pred = model.predict([[float(NPTA), float(TLTA), float(WCTA)]])
         print(pred)
         s = "The predicted bankruptcy score is : " + str(pred)
         return(render_template("index.html",results="1"))
